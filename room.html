@@ -12,12 +12,28 @@
 @media(max-width:700px){.room{background-position:58% center}.head{top:16px}.head h1{font-size:clamp(28px,9vw,38px)}.head p{margin-top:7px}.portal{--s:clamp(68px,20vw,86px)}.portal .label{font-size:8px}.portal .label small{font-size:5px;margin-top:3px}.cup{left:5%;top:25%}.craft{left:39%;top:31%}.menu{right:5%;top:24%}.wall{right:6%;top:48%}.origin{left:5%;bottom:23%}.table{left:38%;bottom:15%}.journey{right:6%;bottom:20%}}
 @media(max-width:390px){.portal{--s:64px}.head small,.head p{font-size:5.5px}.portal .label{font-size:7px}}
 @media(orientation:landscape) and (max-height:520px){.head{top:8px}.head h1{font-size:27px;margin:4px}.head p{display:none}.portal{--s:60px}.portal .label{font-size:7px}.cup{left:8%;top:29%}.craft{left:31%;top:38%}.menu{right:28%;top:24%}.wall{right:7%;top:40%}.origin{left:8%;bottom:8%}.table{left:38%;bottom:7%}.journey{right:8%;bottom:8%}}
+
+/* unmistakably different portal system */
+.portal{background:rgba(3,35,25,.72)!important;backdrop-filter:blur(7px);border:1px solid rgba(255,255,255,.38)!important}
+.portal:before{opacity:.32!important}
+.portal:after{background:linear-gradient(180deg,rgba(0,20,14,.05),rgba(0,20,14,.82))!important}
+.portal .icon{position:absolute;z-index:4;left:50%;top:31%;transform:translate(-50%,-50%);font:400 clamp(20px,2vw,32px)/1 Georgia,serif;color:#f2d27d;text-shadow:0 2px 12px #000}
+.portal .label{bottom:12px!important}
+.cup{border-radius:50%!important}
+.craft{border-radius:12px 12px 42px 42px!important}
+.menu{border-radius:50%!important;border:3px double #f2d27d!important}
+.wall{border-radius:4px!important;transform:rotate(-3deg)}
+.origin{border-radius:70% 30% 65% 35%/45% 60% 40% 55%!important}
+.table{border-radius:50% 50% 18% 18%!important}
+.journey{border-radius:48px 48px 4px 4px!important;border-bottom-width:6px!important}
+@media(max-width:700px){.portal .icon{font-size:20px}.portal .label{bottom:8px!important}}
 </style></head><body><main class="room"><header class="head"><small>STARBUCKS PHILIPPINES · OUR STORY</small><h1>Explore the Coffeehouse</h1><p>SEVEN STORIES · EACH WITH ITS OWN WORLD</p></header>
-<a class="portal cup" href="./cup.html"><span class="label">THE CUP<small>COFFEE · WARMTH</small></span></a>
-<a class="portal craft" href="./counter.html"><span class="label">THE CRAFT<small>BARISTA · HANDMADE</small></span></a>
-<a class="portal menu" href="https://dariakimberly4-netizen.github.io/interactive-drink-menu/starbucks-menu-orbit/"><span class="label">MENU<small>DRINKS · DISCOVER</small></span></a>
-<a class="portal wall" href="./wall.html"><span class="label">THE WALL<small>MEMORY · STORY</small></span></a>
-<a class="portal origin" href="./window.html"><span class="label">THE ORIGIN<small>FARM · BEAN</small></span></a>
-<a class="portal table" href="./table.html"><span class="label">THE TABLE<small>PEOPLE · TOGETHER</small></span></a>
-<a class="portal journey" href="./exit.html"><span class="label">THE JOURNEY<small>DOOR · FORWARD</small></span></a>
+
+<a class="portal cup" href="./cup.html"><span class="icon">☕</span><span class="label">THE CUP<small>COFFEE · WARMTH</small></span></a>
+<a class="portal craft" href="./counter.html"><span class="icon">✦</span><span class="label">THE CRAFT<small>BARISTA · HANDMADE</small></span></a>
+<a class="portal menu" href="https://dariakimberly4-netizen.github.io/interactive-drink-menu/starbucks-menu-orbit/"><span class="icon">↻</span><span class="label">MENU ORBIT<small>DRINKS · DISCOVER</small></span></a>
+<a class="portal wall" href="./wall.html"><span class="icon">▣</span><span class="label">THE WALL<small>MEMORY · STORY</small></span></a>
+<a class="portal origin" href="./window.html"><span class="icon">❧</span><span class="label">THE ORIGIN<small>FARM · BEAN</small></span></a>
+<a class="portal table" href="./table.html"><span class="icon">● ● ●</span><span class="label">THE TABLE<small>PEOPLE · TOGETHER</small></span></a>
+<a class="portal journey" href="./exit.html"><span class="icon">⌂</span><span class="label">THE JOURNEY<small>DOOR · FORWARD</small></span></a>
 </main></body></html>
