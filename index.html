@@ -40,8 +40,12 @@ body:has(#room:target) .door-only{display:none!important;pointer-events:none!imp
 @media(max-width:600px){.door-only{left:29%;top:43%;width:42%;height:34%}}
 body.inside #entry{display:none!important}body.inside #room{opacity:1!important;pointer-events:auto!important;transform:none!important;z-index:100!important}.hot{touch-action:manipulation!important}
 html.inside-root #entry{display:none!important}html.inside-root #room{opacity:1!important;pointer-events:auto!important;transform:none!important;z-index:100!important}
+
+.enter-native{position:fixed!important;z-index:2147483647!important;display:block!important;left:35%!important;top:48%!important;width:30%!important;height:34%!important;background:transparent!important;border:0!important;pointer-events:auto!important;touch-action:manipulation!important;-webkit-tap-highlight-color:rgba(255,255,255,.12)!important}
+html.inside-root .enter-native{display:none!important}
+@media(max-width:600px){.enter-native{left:20%!important;top:42%!important;width:60%!important;height:42%!important}}
 </style></head><body><script>if(location.search.includes('inside=1'))document.documentElement.classList.add('inside-root')</script><main class="app">
-<section class="scene entry" id="entry"><img class="hero-photo" src="./2e9b926c-84b4-42f1-8994-f7feec96a66d.png" alt=""><div class="portal" id="doors"></div><a class="door-only" href="/starbucks-philippines-inside-the-cup/?inside=1#room" aria-label="Enter the Starbucks story"></a></section>
+<section class="scene entry" id="entry"><img class="hero-photo" src="./2e9b926c-84b4-42f1-8994-f7feec96a66d.png" alt=""><div class="portal" id="doors"></div><a class="enter-native" href="./?inside=1" aria-label="Enter"></a></section>
 <section class="scene room hidden" id="room">
 <div class="roomtitle"><small>THE GREEN DOOR</small><h1>Choose where to look.</h1></div>
 <a class="hot counter" href="counter.html">THE<br>COUNTER</a>
