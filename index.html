@@ -12,7 +12,7 @@
 <section class="scene story hidden" id="story"><div class="storybg"></div><div class="storyshade"></div><div class="storycopy"><small></small><h2></h2><p></p></div><button class="back" id="back">← BACK TO COFFEEHOUSE</button></section>
 <section class="scene final hidden" id="final"><div><p>STARBUCKS PHILIPPINES · OUR STORY</p><h2>You came for coffee.<br>You left with a story.</h2><span class="again" id="again">ENTER AGAIN</span></div></section>
 </main><script>
-const entry=document.querySelector('#entry'),room=document.querySelector('#room'),story=document.querySelector('#story'),final=document.querySelector('#final'),doors=document.querySelector('#doors');
+const entry=document.getElementById('entry'),room=document.getElementById('room'),story=document.getElementById('story'),final=document.getElementById('final');
 const data={
 craft:['THE COUNTER','Craft','Behind the counter, coffee becomes a practiced ritual — measured, made and handed forward.','https://images.unsplash.com/photo-1511081692775-05d0f180a065?auto=format&fit=crop&w=1800&q=88'],
 coffee:['THE CUP','Coffee','Move closer. The cup becomes a doorway into aroma, texture and the moment before the first sip.','https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1800&q=88'],
@@ -21,20 +21,12 @@ origin:['THE WINDOW','Beyond the Window','Look beyond the coffeehouse. Every cup
 people:['THE COMMUNITY TABLE','Together','The table is where coffee becomes conversation — a place to meet, pause, work and share time.','https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=1800&q=88']
 };
 function show(el){[entry,room,story,final].forEach(x=>x.classList.add('hidden'));el.classList.remove('hidden')}
-history.replaceState(null,'','#room')});if(location.search.includes('inside=1')||location.hash==='#room'){show(room)}
-document.querySelectorAll('.hot').forEach(b=>b.onclick=()=>{if(b.dataset.key==='exit'){show(final);return}let d=data[b.dataset.key];story.querySelector('small').textContent=d[0];story.querySelector('h2').textContent=d[1];story.querySelector('p').textContent=d[2];story.querySelector('.storybg').style.backgroundImage="url('"+d[3]+"')";show(story)})
-document.querySelector('#back').onclick=()=>show(room);document.querySelectorAll('[data-home]').forEach(x=>x.onclick=e=>{e.preventDefault();show(entry)});document.querySelectorAll('[data-story]').forEach(x=>x.onclick=e=>{e.preventDefault();show(room)});document.querySelector('#again').onclick=()=>{doors.classList.remove('open');document.querySelector('#enter').style.opacity=1;show(entry)}
-show(room)},{passive:false});
-
-const entryDoor=document.getElementById('entry');
-function enterDoor(e){
-  if(e && e.target && e.target.closest && e.target.closest('.nav')) return;
-  show(room);
-}
-entryDoor.addEventListener('click',enterDoor);
-entryDoor.addEventListener('touchend',function(e){
-  if(e.target && e.target.closest && e.target.closest('.nav')) return;
-  e.preventDefault(); show(room);
-},{passive:false});
-entryDoor.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();show(room)}});
+function enterDoor(e){if(e.target.closest('.nav'))return;show(room)}
+entry.addEventListener('click',enterDoor);
+entry.addEventListener('touchend',e=>{if(e.target.closest('.nav'))return;e.preventDefault();show(room)},{passive:false});
+document.querySelectorAll('.hot[data-key]').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.key==='exit'){show(final);return}const d=data[b.dataset.key];story.querySelector('small').textContent=d[0];story.querySelector('h2').textContent=d[1];story.querySelector('p').textContent=d[2];story.querySelector('.storybg').style.backgroundImage="url('"+d[3]+"')";show(story)}));
+document.getElementById('back').onclick=()=>show(room);
+document.querySelectorAll('[data-home]').forEach(x=>x.onclick=e=>{e.preventDefault();show(entry)});
+document.querySelectorAll('[data-story]').forEach(x=>x.onclick=e=>{e.preventDefault();show(room)});
+document.getElementById('again').onclick=()=>show(entry);
 </script></body></html>
