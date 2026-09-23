@@ -13,6 +13,12 @@
 .entry .hero-photo{height:112%!important;top:-12%!important;object-fit:cover!important;object-position:center bottom!important}
 .baked-enter{left:50%!important;top:56%!important;width:62%!important;height:18%!important}
 }
+
+#room:target{z-index:2147483647!important;opacity:1!important;pointer-events:auto!important;transform:none!important}
+body:has(#room:target) #entry,
+body:has(#room:target) #entry *{pointer-events:none!important}
+body:has(#room:target) #entry{z-index:-1!important;visibility:hidden!important}
+#room .hot{pointer-events:auto!important;touch-action:manipulation!important;z-index:50!important}
 </style></head><body><main class="app">
 <section class="scene entry" id="entry"><img class="hero-photo" src="./2e9b926c-84b4-42f1-8994-f7feec96a66d.png" alt=""><a class="baked-enter" href="#room" aria-label="Enter the Starbucks story"></a><div class="portal" id="doors"></div></section>
 <section class="scene room hidden" id="room"><div class="roomtitle"><small>THE GREEN DOOR</small><h1>Choose where to look.</h1></div><button class="hot counter" data-key="craft">THE<br>COUNTER</button><a class="hot menuhot" href="https://dariakimberly4-netizen.github.io/interactive-drink-menu/starbucks-menu-orbit/">MENU<br>ORBIT</a><button class="hot cup" data-key="coffee">THE<br>CUP</button><button class="hot wall" data-key="history">THE<br>WALL</button><button class="hot window" data-key="origin">THE<br>WINDOW</button><button class="hot table" data-key="people">THE<br>TABLE</button><button class="hot exit" data-key="exit">THE<br>EXIT</button></section>
