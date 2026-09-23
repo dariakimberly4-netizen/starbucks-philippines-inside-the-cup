@@ -19,13 +19,17 @@ body:has(#room:target) #entry,
 body:has(#room:target) #entry *{pointer-events:none!important}
 body:has(#room:target) #entry{z-index:-1!important;visibility:hidden!important}
 #room .hot{pointer-events:auto!important;touch-action:manipulation!important;z-index:50!important}
+#room button.hot{position:absolute!important;pointer-events:auto!important;touch-action:manipulation!important;-webkit-tap-highlight-color:rgba(255,255,255,.15)!important;z-index:9999!important}
 </style></head><body><main class="app">
 <section class="scene entry" id="entry"><img class="hero-photo" src="./2e9b926c-84b4-42f1-8994-f7feec96a66d.png" alt=""><a class="baked-enter" href="#room" aria-label="Enter the Starbucks story"></a><div class="portal" id="doors"></div></section>
 <section class="scene room hidden" id="room"><div class="roomtitle"><small>THE GREEN DOOR</small><h1>Choose where to look.</h1></div><button class="hot counter" data-key="craft">THE<br>COUNTER</button><a class="hot menuhot" href="https://dariakimberly4-netizen.github.io/interactive-drink-menu/starbucks-menu-orbit/">MENU<br>ORBIT</a><button class="hot cup" data-key="coffee">THE<br>CUP</button><button class="hot wall" data-key="history">THE<br>WALL</button><button class="hot window" data-key="origin">THE<br>WINDOW</button><button class="hot table" data-key="people">THE<br>TABLE</button><button class="hot exit" data-key="exit">THE<br>EXIT</button></section>
 <section class="scene story hidden" id="story"><div class="storybg"></div><div class="storyshade"></div><div class="storycopy"><small></small><h2></h2><p></p></div><button class="back" id="back">← BACK TO COFFEEHOUSE</button></section>
 <section class="scene final hidden" id="final"><div><p>STARBUCKS PHILIPPINES · OUR STORY</p><h2>You came for coffee.<br>You left with a story.</h2><span class="again" id="again">ENTER AGAIN</span></div></section>
 </main><script>
-const entry=document.getElementById('entry'),room=document.getElementById('room'),story=document.getElementById('story'),final=document.getElementById('final');
+const entry=document.getElementById('entry');
+const room=document.getElementById('room');
+const story=document.getElementById('story');
+const final=document.getElementById('final');
 const data={
 craft:['THE COUNTER','Craft','Behind the counter, coffee becomes a practiced ritual — measured, made and handed forward.','https://images.unsplash.com/photo-1511081692775-05d0f180a065?auto=format&fit=crop&w=1800&q=88'],
 coffee:['THE CUP','Coffee','Move closer. The cup becomes a doorway into aroma, texture and the moment before the first sip.','https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1800&q=88'],
@@ -33,10 +37,27 @@ history:['THE WALL','A Story on the Wall','A coffeehouse carries traces of where
 origin:['THE WINDOW','Beyond the Window','Look beyond the coffeehouse. Every cup begins long before it reaches the table.','https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1800&q=88'],
 people:['THE COMMUNITY TABLE','Together','The table is where coffee becomes conversation — a place to meet, pause, work and share time.','https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=1800&q=88']
 };
-function show(el){[entry,room,story,final].forEach(x=>x.classList.add('hidden'));el.classList.remove('hidden')}
-document.querySelectorAll('.hot[data-key]').forEach(b=>b.onclick=()=>{if(b.dataset.key==='exit'){show(final);return}const d=data[b.dataset.key];story.querySelector('small').textContent=d[0];story.querySelector('h2').textContent=d[1];story.querySelector('p').textContent=d[2];story.querySelector('.storybg').style.backgroundImage="url('"+d[3]+"')";show(story)});
+function show(el){
+ [entry,room,story,final].forEach(x=>{x.classList.add('hidden');x.style.pointerEvents='none';x.style.zIndex='0'});
+ el.classList.remove('hidden');el.style.pointerEvents='auto';el.style.zIndex='100';
+}
+function openHot(btn){
+ const key=btn.dataset.key;
+ if(key==='exit'){history.replaceState(null,'',location.pathname+location.search);show(final);return;}
+ const d=data[key]; if(!d)return;
+ story.querySelector('small').textContent=d[0];
+ story.querySelector('h2').textContent=d[1];
+ story.querySelector('p').textContent=d[2];
+ story.querySelector('.storybg').style.backgroundImage="url('"+d[3]+"')";
+ history.replaceState(null,'',location.pathname+location.search);
+ show(story);
+}
+document.querySelectorAll('#room button.hot[data-key]').forEach(btn=>{
+ btn.type='button';
+ btn.addEventListener('pointerup',e=>{e.preventDefault();e.stopPropagation();openHot(btn)});
+ btn.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();openHot(btn)});
+});
 document.getElementById('back').onclick=()=>show(room);
-document.querySelectorAll('[data-home]').forEach(x=>x.onclick=e=>{e.preventDefault();show(entry)});
-document.querySelectorAll('[data-story]').forEach(x=>x.onclick=e=>{e.preventDefault();show(room)});
 document.getElementById('again').onclick=()=>show(entry);
+if(location.hash==='#room')show(room);
 </script></body></html>
