@@ -25,6 +25,15 @@ body:has(#room:target) #entry{z-index:-1!important;visibility:hidden!important}
 .native-story:target{opacity:1;visibility:visible;pointer-events:auto}
 .native-story small{letter-spacing:.35em;color:#d9b56f}.native-story h2{font:400 clamp(52px,9vw,100px)/.95 Georgia,serif;margin:18px 0}.native-story p{max-width:650px;font:italic 19px/1.6 Georgia,serif;color:#eadfce}.native-back{position:absolute;left:8vw;bottom:38px;color:#fff;text-decoration:none;border:1px solid #d8ba7d88;padding:14px 18px;font-size:10px;letter-spacing:.2em}
 #room .hot{display:grid!important;pointer-events:auto!important;z-index:999999!important}
+
+#room a.hot{position:absolute!important;display:grid!important;place-items:center!important;width:74px!important;height:74px!important;pointer-events:auto!important;touch-action:manipulation!important;z-index:2147483646!important}
+#room a.counter{left:8%!important;right:auto!important;top:48%!important;bottom:auto!important}
+#room a.menuhot{left:29%!important;right:auto!important;top:36%!important;bottom:auto!important}
+#room a.cup{left:40%!important;right:auto!important;top:66%!important;bottom:auto!important}
+#room a.wall{left:auto!important;right:7%!important;top:39%!important;bottom:auto!important}
+#room a.window{left:auto!important;right:4%!important;top:69%!important;bottom:auto!important}
+#room a.table{left:12%!important;right:auto!important;top:76%!important;bottom:auto!important}
+#room a.exit{left:auto!important;right:16%!important;top:21%!important;bottom:auto!important}
 </style></head><body><main class="app">
 <section class="scene entry" id="entry"><img class="hero-photo" src="./2e9b926c-84b4-42f1-8994-f7feec96a66d.png" alt=""><a class="baked-enter" href="#room" aria-label="Enter the Starbucks story"></a><div class="portal" id="doors"></div></section>
 <section class="scene room hidden" id="room"><div class="roomtitle"><small>THE GREEN DOOR</small><h1>Choose where to look.</h1></div><a class="hot counter" href="#craft" data-key="craft">THE<br>COUNTER</a><a class="hot menuhot" href="https://dariakimberly4-netizen.github.io/interactive-drink-menu/starbucks-menu-orbit/">MENU<br>ORBIT</a><a class="hot cup" href="#coffee" data-key="coffee">THE<br>CUP</a><a class="hot wall" href="#history" data-key="history">THE<br>WALL</a><a class="hot window" href="#origin" data-key="origin">THE<br>WINDOW</a><a class="hot table" href="#people" data-key="people">THE<br>TABLE</a><a class="hot exit" href="#exit" data-key="exit">THE<br>EXIT</a></section>
