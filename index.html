@@ -38,9 +38,20 @@ body:has(#room:target) #entry{z-index:-1!important;visibility:hidden!important}
 .door-only{position:absolute;z-index:50;left:39%;top:48%;width:22%;height:30%;display:block;background:transparent;-webkit-tap-highlight-color:transparent}
 body:has(#room:target) .door-only{display:none!important;pointer-events:none!important}
 @media(max-width:600px){.door-only{left:29%;top:43%;width:42%;height:34%}}
-</style></head><body><main class="app">
+body.inside #entry{display:none!important}body.inside #room{opacity:1!important;pointer-events:auto!important;transform:none!important;z-index:100!important}.hot{touch-action:manipulation!important}
+html.inside-root #entry{display:none!important}html.inside-root #room{opacity:1!important;pointer-events:auto!important;transform:none!important;z-index:100!important}
+</style></head><body><script>if(location.search.includes('inside=1'))document.documentElement.classList.add('inside-root')</script><main class="app">
 <section class="scene entry" id="entry"><img class="hero-photo" src="./2e9b926c-84b4-42f1-8994-f7feec96a66d.png" alt=""><div class="portal" id="doors"></div><a class="door-only" href="/starbucks-philippines-inside-the-cup/?inside=1#room" aria-label="Enter the Starbucks story"></a></section>
-<section class="scene room hidden" id="room"><div class="roomtitle"><small>THE GREEN DOOR</small><h1>Choose where to look.</h1></div><a class="hot counter" href="/starbucks-philippines-inside-the-cup/?panel=craft#craft" data-key="craft">THE<br>COUNTER</a><a class="hot menuhot" href="https://dariakimberly4-netizen.github.io/interactive-drink-menu/starbucks-menu-orbit/">MENU<br>ORBIT</a><a class="hot cup" href="/starbucks-philippines-inside-the-cup/?panel=coffee#coffee" data-key="coffee">THE<br>CUP</a><a class="hot wall" href="/starbucks-philippines-inside-the-cup/?panel=history#history" data-key="history">THE<br>WALL</a><a class="hot window" href="/starbucks-philippines-inside-the-cup/?panel=origin#origin" data-key="origin">THE<br>WINDOW</a><a class="hot table" href="/starbucks-philippines-inside-the-cup/?panel=people#people" data-key="people">THE<br>TABLE</a><a class="hot exit" href="/starbucks-philippines-inside-the-cup/?panel=exit#exit" data-key="exit">THE<br>EXIT</a></section>
+<section class="scene room hidden" id="room">
+<div class="roomtitle"><small>THE GREEN DOOR</small><h1>Choose where to look.</h1></div>
+<a class="hot counter" href="counter.html">THE<br>COUNTER</a>
+<a class="hot menuhot" href="https://dariakimberly4-netizen.github.io/interactive-drink-menu/starbucks-menu-orbit/">MENU<br>ORBIT</a>
+<a class="hot cup" href="cup.html">THE<br>CUP</a>
+<a class="hot wall" href="wall.html">THE<br>WALL</a>
+<a class="hot window" href="window.html">THE<br>WINDOW</a>
+<a class="hot table" href="table.html">THE<br>TABLE</a>
+<a class="hot exit" href="exit.html">THE<br>EXIT</a>
+</section>
 <section class="scene story hidden" id="story"><div class="storybg"></div><div class="storyshade"></div><div class="storycopy"><small></small><h2></h2><p></p></div><button class="back" id="back">← BACK TO COFFEEHOUSE</button></section>
 <section class="scene final hidden" id="final"><div><p>STARBUCKS PHILIPPINES · OUR STORY</p><h2>You came for coffee.<br>You left with a story.</h2><span class="again" id="again">ENTER AGAIN</span></div></section>
 
