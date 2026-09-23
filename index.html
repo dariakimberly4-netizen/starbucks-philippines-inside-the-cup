@@ -20,12 +20,23 @@ body:has(#room:target) #entry *{pointer-events:none!important}
 body:has(#room:target) #entry{z-index:-1!important;visibility:hidden!important}
 #room .hot{pointer-events:auto!important;touch-action:manipulation!important;z-index:50!important}
 #room .hot{position:absolute!important;pointer-events:auto!important;touch-action:manipulation!important;-webkit-tap-highlight-color:rgba(255,255,255,.15)!important;z-index:9999!important}
+
+.native-story{position:fixed;inset:0;z-index:2147483647;background:#0b2d21;color:#fff;padding:18vh 8vw 8vh;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .35s}
+.native-story:target{opacity:1;visibility:visible;pointer-events:auto}
+.native-story small{letter-spacing:.35em;color:#d9b56f}.native-story h2{font:400 clamp(52px,9vw,100px)/.95 Georgia,serif;margin:18px 0}.native-story p{max-width:650px;font:italic 19px/1.6 Georgia,serif;color:#eadfce}.native-back{position:absolute;left:8vw;bottom:38px;color:#fff;text-decoration:none;border:1px solid #d8ba7d88;padding:14px 18px;font-size:10px;letter-spacing:.2em}
+#room .hot{display:grid!important;pointer-events:auto!important;z-index:999999!important}
 </style></head><body><main class="app">
 <section class="scene entry" id="entry"><img class="hero-photo" src="./2e9b926c-84b4-42f1-8994-f7feec96a66d.png" alt=""><a class="baked-enter" href="#room" aria-label="Enter the Starbucks story"></a><div class="portal" id="doors"></div></section>
 <section class="scene room hidden" id="room"><div class="roomtitle"><small>THE GREEN DOOR</small><h1>Choose where to look.</h1></div><a class="hot counter" href="#craft" data-key="craft">THE<br>COUNTER</a><a class="hot menuhot" href="https://dariakimberly4-netizen.github.io/interactive-drink-menu/starbucks-menu-orbit/">MENU<br>ORBIT</a><a class="hot cup" href="#coffee" data-key="coffee">THE<br>CUP</a><a class="hot wall" href="#history" data-key="history">THE<br>WALL</a><a class="hot window" href="#origin" data-key="origin">THE<br>WINDOW</a><a class="hot table" href="#people" data-key="people">THE<br>TABLE</a><a class="hot exit" href="#exit" data-key="exit">THE<br>EXIT</a></section>
 <section class="scene story hidden" id="story"><div class="storybg"></div><div class="storyshade"></div><div class="storycopy"><small></small><h2></h2><p></p></div><button class="back" id="back">← BACK TO COFFEEHOUSE</button></section>
 <section class="scene final hidden" id="final"><div><p>STARBUCKS PHILIPPINES · OUR STORY</p><h2>You came for coffee.<br>You left with a story.</h2><span class="again" id="again">ENTER AGAIN</span></div></section>
-</main><script>
+
+<section class="native-story" id="craft"><a class="native-back" href="#room">← BACK</a><small>THE COUNTER</small><h2>Craft</h2><p>Behind the counter, coffee becomes a practiced ritual — measured, made and handed forward.</p></section>
+<section class="native-story" id="coffee"><a class="native-back" href="#room">← BACK</a><small>THE CUP</small><h2>Coffee</h2><p>Move closer. The cup becomes a doorway into aroma, texture and the moment before the first sip.</p></section>
+<section class="native-story" id="history"><a class="native-back" href="#room">← BACK</a><small>THE WALL</small><h2>A Story on the Wall</h2><p>A coffeehouse carries traces of where it came from — photographs, materials, memory and place.</p></section>
+<section class="native-story" id="origin"><a class="native-back" href="#room">← BACK</a><small>THE WINDOW</small><h2>Beyond the Window</h2><p>Look beyond the coffeehouse. Every cup begins long before it reaches the table.</p></section>
+<section class="native-story" id="people"><a class="native-back" href="#room">← BACK</a><small>THE COMMUNITY TABLE</small><h2>Together</h2><p>The table is where coffee becomes conversation — a place to meet, pause, work and share time.</p></section>
+<section class="native-story" id="exit"><a class="native-back" href="#room">← BACK</a><small>STARBUCKS PHILIPPINES · OUR STORY</small><h2>You came for coffee.<br>You left with a story.</h2></section></main><script>
 const entry=document.getElementById('entry');
 const room=document.getElementById('room');
 const story=document.getElementById('story');
